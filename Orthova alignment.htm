@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ORTHOVA</title>
+  <meta name="description"
+    content="Orthova — Premium clear aligners precision-engineered in Germany. Clinical reliability meets unparalleled aesthetic refinement for the discerning patient.">
+  <meta name="keywords"
+    content="Orthova, clear aligners, orthodontics, German engineering, invisible braces, dental aligners">
+  <meta property="og:title" content="ORTHOVA — The Art Of Alignment">
+  <meta property="og:description"
+    content="Premium clear aligners precision-engineered in Germany. Clinical reliability meets aesthetic refinement.">
+  <meta property="og:image" content="orthova alignment case.jpeg">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="ORTHOVA LOGO.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@200;300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      /* Cinematic Color Palette */
+      --bg-deep: #020408;
+      /* Deeper, more cinematic black */
+      --bg-surface: #070B14;
+      --bg-glass: rgba(10, 15, 25, 0.4);
+      --bg-glass-hover: rgba(20, 30, 45, 0.6);
+
+      --text-pearl: #F8FAFC;
+      --text-muted: #8A9CB0;
+      --text-dim: #4B5A70;
+
+      --accent-ice: #D1E4FF;
+      --accent-glow: rgba(209, 228, 255, 0.15);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(255, 255, 255, 0.15);
+
+      /* Typography */
+      --font-display: 'Instrument Serif', serif;
+      --font-body: 'Outfit', sans-serif;
+
+      /* Motion - Apple Style Easing */
+      --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out: cubic-bezier(0.21, 0.83, 0.26, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-deep);
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-pearl);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: var(--text-pearl);
+      color: var(--bg-deep);
+    }
+
+    /* --- AMBIENT CINEMATIC BACKGROUND --- */
+    .ambient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, #040812 0%, var(--bg-deep) 100%);
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.5;
+      mix-blend-mode: screen;
+      animation: floatOrb 25s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(20, 50, 100, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
+      top: -10%;
+      left: -10%;
+    }
+
+    .orb-2 {
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(circle, rgba(10, 30, 60, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+      bottom: -20%;
+      right: -10%;
+      animation-delay: -12s;
+    }
+
+    @keyframes floatOrb {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(3%, 5%) scale(1.05);
+      }
+
+      100% {
+        transform: translate(-2%, -3%) scale(0.95);
+      }
+    }
+
+    /* --- TYPOGRAPHY --- */
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: normal;
+    }
+
+    .display-title {
+      font-family: var(--font-display);
+      font-size: clamp(4.5rem, 11vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      color: var(--text-pearl);
+      text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .display-title i {
+      font-style: italic;
+      color: var(--text-muted);
+      font-weight: normal;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .section-title i {
+      color: var(--text-muted);
+    }
+
+    .body-text {
+      font-size: clamp(1rem, 1.2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 550px;
+    }
+
+    .tagline {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .tagline::after {
+      content: '';
+      height: 1px;
+      width: 50px;
+      background: var(--text-dim);
+      display: block;
+    }
+
+    /* --- BUTTONS --- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.1rem 2.5rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.5s var(--ease-cinematic);
+      cursor: pointer;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--text-pearl);
+      color: var(--bg-deep);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1), inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2), inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+      background: #ffffff;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-pearl);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-glow);
+      transform: translateY(-3px);
+    }
+
+    /* --- CINEMATIC REVEAL ANIMATIONS --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      filter: blur(12px);
+      /* Cinematic blur on load */
+      transition: opacity 1.4s var(--ease-cinematic),
+        transform 1.4s var(--ease-cinematic),
+        filter 1.4s var(--ease-cinematic);
+      will-change: transform, opacity, filter;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    /* --- NAVIGATION --- */
+    .nav-wrapper {
+      position: fixed;
+      top: 2rem;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 100;
+      padding: 0 2rem;
+      pointer-events: none;
+    }
+
+    .nav {
+      pointer-events: auto;
+      background: rgba(7, 11, 20, 0.5);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 999px;
+      padding: 0.5rem 0.5rem 0.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: filter 0.4s;
+    }
+
+    .nav-logo:hover img {
+      filter: brightness(0) invert(0.85);
+    }
+
+    .nav-logo span {
+      font-family: var(--font-body);
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: var(--text-pearl);
+      font-size: 0.85rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: color 0.4s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-pearl);
+    }
+
+    .nav .btn-primary {
+      padding: 0.8rem 1.8rem;
+      font-size: 0.75rem;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      max-width: 1000px;
+      z-index: 2;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    /* ==========================================================================
+   THE FIX: HIGH-END CINEMATIC GLASS SHAPE (Replaces the ugly blob)
+   ========================================================================== */
+    .hero-visual {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* 1. The glowing core behind the glass */
+    .glass-glow {
+      position: absolute;
+      width: clamp(200px, 30vw, 400px);
+      height: clamp(200px, 30vw, 400px);
+      background: radial-gradient(circle, rgba(160, 200, 255, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      animation: pulse-glow 8s ease-in-out infinite alternate;
+    }
+
+    /* 2. The physical glass lens */
+    .glass-shape {
+      position: relative;
+      width: clamp(300px, 45vw, 650px);
+      height: clamp(300px, 45vw, 650px);
+
+      /* Cinematic Glass Gradient */
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.005) 100%);
+
+      /* High-end blur */
+      backdrop-filter: blur(35px);
+      -webkit-backdrop-filter: blur(35px);
+
+      /* Rim Lighting (Crisp Edges) */
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+
+      /* Inner shadow for 3D depth, outer shadow for separation */
+      box-shadow:
+        inset 0 0 60px rgba(255, 255, 255, 0.02),
+        0 30px 60px rgba(0, 0, 0, 0.4);
+
+      border-radius: 45% 55% 65% 35% / 45% 45% 55% 55%;
+      animation: cinematic-morph 18s var(--ease-cinematic) infinite alternate;
+
+      /* Smooth transform for JS Parallax */
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* 3. A subtle reflection on top of the glass */
+    .glass-shape::after {
+      content: '';
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 40%;
+      height: 40%;
+      background: radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+      border-radius: 50%;
+      transform: rotate(-45deg);
+      pointer-events: none;
+    }
+
+    @keyframes cinematic-morph {
+      0% {
+        border-radius: 45% 55% 65% 35% / 45% 45% 55% 55%;
+        transform: rotate(0deg) scale(1);
+      }
+
+      50% {
+        border-radius: 55% 45% 35% 65% / 55% 55% 45% 45%;
+      }
+
+      100% {
+        border-radius: 35% 65% 55% 45% / 45% 55% 45% 55%;
+        transform: rotate(15deg) scale(1.05);
+      }
+    }
+
+    @keyframes pulse-glow {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+
+    /* ========================================================================== */
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      z-index: 2;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      color: var(--text-dim);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(to bottom, transparent, var(--text-pearl), transparent);
+      animation: scrollDrop 2.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    }
+
+    @keyframes scrollDrop {
+      0% {
+        transform: translateY(-100%);
+      }
+
+      100% {
+        transform: translateY(200%);
+      }
+    }
+
+    /* --- MARQUEE --- */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      padding: 3.5rem 0;
+      background: rgba(7, 11, 20, 0.4);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border-glass);
+      border-bottom: 1px solid var(--border-glass);
+      display: flex;
+    }
+
+    .marquee-content {
+      display: flex;
+      gap: 5rem;
+      white-space: nowrap;
+      animation: marquee 35s linear infinite;
+      padding-left: 5rem;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .marquee-item i {
+      color: var(--text-pearl);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-style: normal;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* --- SECTIONS --- */
+    .section-pad {
+      padding: 12rem 5vw;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .about-visual {
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: linear-gradient(180deg, var(--bg-glass) 0%, rgba(0, 0, 0, 0) 100%);
+      border: 1px solid var(--border-glass);
+    }
+
+    .about-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      filter: grayscale(5%) contrast(1.05) brightness(0.95);
+      transition: transform 2s var(--ease-cinematic), filter 1s var(--ease-cinematic);
+    }
+
+    .about-visual:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0%) contrast(1.1) brightness(1);
+    }
+
+    .about-floating-card {
+      position: absolute;
+      bottom: 2.5rem;
+      right: -2.5rem;
+      background: rgba(10, 15, 25, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2.5rem;
+      border-radius: 24px;
+      max-width: 300px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-floating-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-pearl);
+    }
+
+    .about-floating-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .pillar {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-glass);
+    }
+
+    .pillar:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .pillar-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    .pillar-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-pearl);
+    }
+
+    .pillar-content p {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* --- BENTO GRID --- */
+    .bento-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .bento-header {
+      text-align: center;
+      margin-bottom: 6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 320px;
+      gap: 1.5rem;
+    }
+
+    .bento-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      border-radius: 30px;
+      padding: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s var(--ease-cinematic);
+    }
+
+    .bento-card:hover {
+      background: rgba(20, 30, 45, 0.4);
+      border-color: var(--border-glow);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, -20%), rgba(255, 255, 255, 0.06), transparent 40%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .bento-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-wide {
+      grid-column: span 8;
+    }
+
+    .card-square {
+      grid-column: span 4;
+    }
+
+    .bento-icon {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .bento-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--text-pearl);
+      font-weight: 400;
+    }
+
+    .bento-card p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 90%;
+    }
+
+    /* --- PROCESS SECTION --- */
+    .process-section {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 4rem;
+      position: relative;
+      padding-bottom: 7rem;
+    }
+
+    .process-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .process-step::before {
+      content: '';
+      position: absolute;
+      top: 80px;
+      left: 39px;
+      width: 2px;
+      height: calc(100% - 10px);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent);
+    }
+
+    .process-step:last-child::before {
+      display: none;
+    }
+
+    .step-marker {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--bg-deep);
+      border: 1px solid var(--border-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-style: italic;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+      color: var(--text-pearl);
+    }
+
+    .step-content {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      padding: 3.5rem;
+      transition: all 0.5s var(--ease-cinematic);
+      backdrop-filter: blur(10px);
+    }
+
+    .step-content:hover {
+      transform: translateX(15px);
+      border-color: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .step-content h3 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* --- BOOKING & FORM --- */
+    .booking-section {
+      background: radial-gradient(circle at center, rgba(10, 15, 25, 0.8) 0%, var(--bg-deep) 100%);
+      border-top: 1px solid var(--border-glass);
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 8rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .booking-info .contact-list {
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    .contact-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--text-pearl);
+    }
+
+    .glass-form {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 32px;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .input-group label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      padding-left: 0.5rem;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-glass);
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      color: var(--text-pearl);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.4s ease;
+    }
+
+    .input-group select {
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .input-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .input-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-submit-btn {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 1.4rem;
+      border-radius: 16px;
+      font-size: 0.9rem;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+      padding: 6rem 5vw 3rem;
+      border-top: 1px solid var(--border-glass);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 5rem;
+      margin-bottom: 6rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-brand h2 {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      max-width: 350px;
+      font-size: 1.05rem;
+    }
+
+    .footer-links h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-pearl);
+      margin-bottom: 2rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-pearl);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border-glass);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 1024px) {
+
+      .about-layout,
+      .booking-layout {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+      }
+
+      .about-visual {
+        max-height: 600px;
+      }
+
+      .bento-grid {
+        grid-auto-rows: minmax(280px, auto);
+      }
+
+      .card-wide {
+        grid-column: span 12;
+      }
+
+      .card-square {
+        grid-column: span 6;
+      }
+
+      .about-floating-card {
+        right: 2rem;
+        bottom: -2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav {
+        padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+        gap: 1rem;
+      }
+
+      .display-title {
+        font-size: 4rem;
+      }
+
+      .section-pad {
+        padding: 8rem 5vw;
+      }
+
+      .card-square {
+        grid-column: span 12;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .process-step {
+        grid-template-columns: 60px 1fr;
+        gap: 2rem;
+      }
+
+      .step-marker {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+
+      .process-step::before {
+        left: 29px;
+      }
+
+      .glass-form {
+        padding: 2.5rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="ambient-bg">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+  </div>
+
+  <div class="nav-wrapper">
+    <nav class="nav" id="navbar">
+      <a href="#" class="nav-logo">
+        <img src="ORTHOVA LOGO.svg" alt="Orthova Logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#why">Philosophy</a></li>
+        <li><a href="#process">Process</a></li>
+      </ul>
+      <a href="#booking" class="btn btn-primary">Book Consultation</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <!-- THE UPGRADED CINEMATIC GLASS -->
+      <div class="hero-visual reveal">
+        <div class="glass-glow"></div>
+        <div class="glass-shape"></div>
+      </div>
+
+      <div class="hero-content">
+        <span class="tagline reveal delay-1">Premium Clear Aligners</span>
+        <h1 class="display-title reveal delay-2">
+          The <i>Art</i><br>of Alignment.
+        </h1>
+        <p class="body-text reveal delay-3">
+          Precision-engineered in Germany. We merge clinical reliability with unparalleled aesthetic refinement for the
+          discerning patient.
+        </p>
+        <div class="hero-actions reveal delay-3">
+          <a href="#booking" class="btn btn-primary">Begin Journey</a>
+          <a href="#about" class="btn btn-secondary">Explore Orthova</a>
+        </div>
+      </div>
+      <div class="scroll-indicator reveal delay-3">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <div class="marquee-item">German Engineering <i>✦</i></div>
+        <div class="marquee-item">Clinical Precision <i>✦</i></div>
+        <div class="marquee-item">Aesthetic Refinement <i>✦</i></div>
+        <div class="marquee-item">Invisible Comfort <i>✦</i></div>
+        <div class="marquee-item">German Engineering <i>✦</i></div>
+        <div class="marquee-item">Clinical Precision <i>✦</i></div>
+        <div class="marquee-item">Aesthetic Refinement <i>✦</i></div>
+        <div class="marquee-item">Invisible Comfort <i>✦</i></div>
+      </div>
+    </div>
+
+    <section class="section-pad" id="about">
+      <div class="about-layout">
+        <div class="about-content">
+          <span class="tagline reveal">The Orthova Standard</span>
+          <h2 class="section-title reveal delay-1">Premium Care.<br><i>Unmatched Precision.</i></h2>
+          <p class="body-text reveal delay-2">
+            Orthova elevates the orthodontic experience. Sourced exclusively from premium German laboratories, our
+            aligners guarantee superior material quality and predictable clinical outcomes. We design not just for the
+            destination, but for a flawless journey.
+          </p>
+
+          <div class="pillars reveal delay-3">
+            <div class="pillar">
+              <div class="pillar-num">01</div>
+              <div class="pillar-content">
+                <h3>German Fabrication</h3>
+                <p>The global benchmark for medical-grade materials.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-num">02</div>
+              <div class="pillar-content">
+                <h3>Absolute Clarity</h3>
+                <p>Thermoform technology for near-invisibility.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual reveal delay-2">
+          <img src="orthova alignment case.jpeg" alt="Orthova Premium Clear Aligners Case">
+          <div class="about-floating-card">
+            <h4>Engineering</h4>
+            <p>Every micro-movement is calculated digitally for frictionless comfort.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="why">
+      <div class="bento-container">
+        <div class="bento-header reveal">
+          <span class="tagline">The Difference</span>
+          <h2 class="section-title">Designed for <i>Perfection</i></h2>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card card-wide reveal">
+            <div class="bento-icon">C</div>
+            <h3>Clinically Proven Outcomes</h3>
+            <p>Backed by peer-reviewed data and trusted by top orthodontists. Our predictable force systems ensure your
+              smile arrives exactly where mapped.</p>
+          </div>
+
+          <div class="bento-card card-square reveal delay-1">
+            <div class="bento-icon">I</div>
+            <h3>Invisible</h3>
+            <p>Crystal-clear aesthetics that seamlessly blend with your natural teeth.</p>
+          </div>
+
+          <div class="bento-card card-square reveal">
+            <div class="bento-icon">F</div>
+            <h3>Precision Fit</h3>
+            <p>Advanced 3D mapping guarantees aligners that hug the gingival line perfectly.</p>
+          </div>
+
+          <div class="bento-card card-wide reveal delay-1">
+            <div class="bento-icon">D</div>
+            <h3>Doctor-Led Treatment</h3>
+            <p>No DIY guesswork. Your entire biological transformation is overseen exclusively by certified dental
+              professionals from day one to retention.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="process">
+      <div class="bento-header reveal">
+        <span class="tagline">How It Works</span>
+        <h2 class="section-title">Your Path to <i>Alignment</i></h2>
+      </div>
+
+      <div class="process-section">
+        <div class="process-step reveal">
+          <div class="step-marker">1</div>
+          <div class="step-content">
+            <h3>The Consultation</h3>
+            <p class="body-text">Meet with a certified Orthova doctor. A comprehensive intraoral scan captures your
+              unique dental architecture in high-definition 3D.</p>
+          </div>
+        </div>
+
+        <div class="process-step reveal">
+          <div class="step-marker">2</div>
+          <div class="step-content">
+            <h3>Digital Trajectory</h3>
+            <p class="body-text">Our technicians map the exact movement of every tooth. You'll review a cinematic 3D
+              simulation of your final smile before manufacturing begins.</p>
+          </div>
+        </div>
+
+        <div class="process-step reveal">
+          <div class="step-marker">3</div>
+          <div class="step-content">
+            <h3>German Fabrication</h3>
+            <p class="body-text">Your custom aligners are engineered using bio-compatible thermoform plastics, polished
+              for comfort, and shipped to your clinic.</p>
+          </div>
+        </div>
+
+        <div class="process-step reveal">
+          <div class="step-marker">4</div>
+          <div class="step-content">
+            <h3>The Transformation</h3>
+            <p class="body-text">Progress through your series of invisible trays. With periodic doctor check-ins, watch
+              the art of alignment unfold seamlessly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad booking-section" id="booking">
+      <div class="booking-layout">
+        <div class="booking-info reveal">
+          <span class="tagline">Take the first step</span>
+          <h2 class="section-title">Start Your<br><i>Journey</i></h2>
+          <p class="body-text">Connect with a certified Orthova provider. Consultations are handled with absolute
+            discretion and professionalism.</p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon">@</div>
+              <span>info@orthovastudio.com</span>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">T</div>
+              <span>Mon – Sat, 9:00 AM – 6:00 PM</span>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">G</div>
+              <span>German-Engineered · Global Reach</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="glass-form reveal delay-1" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" required placeholder="John Doe">
+            </div>
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required placeholder="john@example.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="phone">Phone (Optional)</label>
+              <input type="tel" id="phone" placeholder="+1 234 567 890">
+            </div>
+            <div class="input-group">
+              <label for="type">Inquiry Type</label>
+              <select id="type" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="patient">New Patient Consultation</option>
+                <option value="transfer">Second Opinion</option>
+                <option value="doctor">Provider Partnership</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group input-full">
+            <label for="message">Details</label>
+            <textarea id="message" placeholder="Tell us about your smile goals..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit-btn" id="submitBtn">Request Consultation</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand reveal">
+        <img src="ORTHOVA LOGO.svg" alt="Orthova Logo"
+          style="height: 45px; width: auto; filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
+        <p>The Art Of Alignment. Premium clear aligners merging clinical precision with flawless aesthetics.</p>
+      </div>
+
+      <div class="footer-links reveal delay-1">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#why">Technology</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links reveal delay-2">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#booking">Find a Provider</a></li>
+          <li><a href="#booking">Partner With Us</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Orthova Studio. All rights reserved.</span>
+      <span>Engineered in Germany</span>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Cinematic Scroll Reveal Logic (Added Blur transition in CSS)
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      });
+    }, revealOptions);
+
+    revealElements.forEach(el => revealOnScroll.observe(el));
+
+    // 2. Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // 3. Form Handling
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const originalText = btn.innerText;
+
+      btn.innerText = 'Sending Request...';
+      btn.style.opacity = '0.8';
+      btn.style.pointerEvents = 'none';
+
+      setTimeout(() => {
+        btn.innerText = 'Request Received';
+        btn.style.background = 'var(--text-muted)';
+        btn.style.color = 'var(--bg-deep)';
+        e.target.reset();
+
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.style.opacity = '1';
+          btn.style.pointerEvents = 'auto';
+        }, 4000);
+      }, 1500);
+    }
+
+    // 4. Ultra-Smooth Cinematic Parallax for the Glass Shape
+    const glassShape = document.querySelector('.glass-shape');
+
+    document.addEventListener('mousemove', (e) => {
+      if (glassShape) {
+        // Calculate position with a very subtle, smooth divisor
+        const x = (window.innerWidth / 2 - e.pageX) / 60;
+        const y = (window.innerHeight / 2 - e.pageY) / 60;
+        // CSS transition handles the smoothing automatically now
+        glassShape.style.transform = `translate(${x}px, ${y}px)`;
+      }
+    });
+
+    // 5. Bento Card Hover Effect (Glow follows mouse)
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  </script>
+</body>
+
+</html>
