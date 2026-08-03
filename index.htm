@@ -3,15 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ORTHOVA</title>
   <meta name="description"
-    content="Orthova — Premium clear aligners precision-engineered in Germany. Clinical reliability meets unparalleled aesthetic refinement for the discerning patient.">
+    content="Orthova — Premium clear aligners engineered for clinical predictability. Partner with a system designed around precision, quality materials, and seamless practice integration.">
   <meta name="keywords"
-    content="Orthova, clear aligners, orthodontics, German engineering, invisible braces, dental aligners">
-  <meta property="og:title" content="ORTHOVA — The Art Of Alignment">
+    content="Orthova, clear aligners, orthodontics, clinical precision, invisible braces, dental aligners, practice partnership, orthodontic system">
+  <meta property="og:title" content="ORTHOVA — Precision Alignment for the Modern Practice">
   <meta property="og:description"
-    content="Premium clear aligners precision-engineered in Germany. Clinical reliability meets aesthetic refinement.">
+    content="Premium clear aligners engineered for clinical predictability. Quality materials. Meticulous design. Seamless integration.">
   <meta property="og:image" content="orthova alignment case.jpeg">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="ORTHOVA LOGO.svg">
@@ -22,29 +22,55 @@
     rel="stylesheet">
 
   <style>
+    /* ============================================
+       ORTHOVA — DESIGN SYSTEM
+       Fluid, responsive, meticulously spaced
+       ============================================ */
+
     :root {
-      /* ORTHOVA Brand Color Palette */
-      --bg-deep: #0F1A2F; /* Navy Dark */
-      --bg-surface: #1C2A4A; /* Navy Primary */
-      --bg-glass: rgba(28, 42, 74, 0.4); /* Navy Primary with opacity */
-      --bg-glass-hover: rgba(46, 67, 112, 0.6); /* Navy Mid with opacity */
+      /* Brand Palette */
+      --bg-deep: #0F1A2F;
+      --bg-surface: #1C2A4A;
+      --bg-glass: rgba(28, 42, 74, 0.4);
+      --bg-glass-hover: rgba(46, 67, 112, 0.6);
 
-      --text-pearl: #F8FAFC; /* Kept bright for readability */
-      --text-muted: #C0C0CC; /* Silver */
-      --text-dim: #B1BCD1; /* Silver Steel */
+      --text-pearl: #F8FAFC;
+      --text-muted: #C0C0CC;
+      --text-dim: #B1BCD1;
 
-      --accent-ice: #2E4370; /* Navy Mid */
-      --accent-glow: rgba(192, 192, 204, 0.15); /* Silver glow */
-      --border-glass: rgba(192, 192, 204, 0.15); /* Silver tinted glass */
-      --border-glow: rgba(177, 188, 209, 0.3); /* Silver Steel tinted glow */
+      --accent-ice: #2E4370;
+      --accent-glow: rgba(192, 192, 204, 0.15);
+      --border-glass: rgba(192, 192, 204, 0.12);
+      --border-glow: rgba(177, 188, 209, 0.3);
 
       /* Typography */
       --font-display: 'Instrument Serif', serif;
       --font-body: 'Outfit', sans-serif;
 
-      /* Motion - Apple Style Easing */
+      /* Fluid Spacing Scale (8px base) */
+      --space-2xs: clamp(0.25rem, 0.5vw, 0.5rem);
+      --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+      --space-sm: clamp(0.75rem, 1.5vw, 1.25rem);
+      --space-md: clamp(1.25rem, 2.5vw, 2rem);
+      --space-lg: clamp(2rem, 4vw, 3.5rem);
+      --space-xl: clamp(3rem, 6vw, 5.5rem);
+      --space-2xl: clamp(4.5rem, 9vw, 8rem);
+      --space-3xl: clamp(6rem, 12vw, 12rem);
+
+      /* Fluid Container */
+      --container-max: 1400px;
+      --container-pad: clamp(1.25rem, 5vw, 5vw);
+
+      /* Motion */
       --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-out: cubic-bezier(0.21, 0.83, 0.26, 1);
+
+      /* Radii */
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --radius-xl: 36px;
+      --radius-full: 999px;
     }
 
     *,
@@ -58,6 +84,7 @@
     html {
       scroll-behavior: smooth;
       background-color: var(--bg-deep);
+      font-size: 16px;
     }
 
     body {
@@ -65,7 +92,7 @@
       color: var(--text-pearl);
       font-family: var(--font-body);
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.7;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -76,87 +103,78 @@
       color: var(--bg-deep);
     }
 
-    /* --- AMBIENT CINEMATIC BACKGROUND --- */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* --- AMBIENT BACKGROUND --- */
     .ambient-bg {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      inset: 0;
       z-index: -1;
       overflow: hidden;
       pointer-events: none;
-      background: radial-gradient(circle at 50% 50%, var(--bg-surface) 0%, var(--bg-deep) 100%);
+      background: radial-gradient(ellipse at 50% 40%, var(--bg-surface) 0%, var(--bg-deep) 70%);
     }
 
     .ambient-orb {
       position: absolute;
       border-radius: 50%;
       filter: blur(140px);
-      opacity: 0.5;
+      opacity: 0.45;
       mix-blend-mode: screen;
-      animation: floatOrb 25s infinite alternate ease-in-out;
+      animation: floatOrb 28s infinite alternate ease-in-out;
     }
 
     .orb-1 {
-      width: 50vw;
-      height: 50vw;
-      background: radial-gradient(circle, rgba(46, 67, 112, 0.6) 0%, rgba(0, 0, 0, 0) 70%); /* Navy Mid */
-      top: -10%;
-      left: -10%;
+      width: 55vmax;
+      height: 55vmax;
+      background: radial-gradient(circle, rgba(46, 67, 112, 0.5) 0%, transparent 70%);
+      top: -15%;
+      left: -15%;
     }
 
     .orb-2 {
-      width: 60vw;
-      height: 60vw;
-      background: radial-gradient(circle, rgba(177, 188, 209, 0.15) 0%, rgba(0, 0, 0, 0) 70%); /* Silver Steel */
-      bottom: -20%;
-      right: -10%;
-      animation-delay: -12s;
+      width: 65vmax;
+      height: 65vmax;
+      background: radial-gradient(circle, rgba(177, 188, 209, 0.12) 0%, transparent 70%);
+      bottom: -25%;
+      right: -15%;
+      animation-delay: -14s;
     }
 
     @keyframes floatOrb {
-      0% {
-        transform: translate(0, 0) scale(1);
-      }
-
-      50% {
-        transform: translate(3%, 5%) scale(1.05);
-      }
-
-      100% {
-        transform: translate(-2%, -3%) scale(0.95);
-      }
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(3%, 4%) scale(1.04); }
+      100% { transform: translate(-2%, -3%) scale(0.96); }
     }
 
-    /* --- TYPOGRAPHY --- */
-    h1,
-    h2,
-    h3,
-    h4 {
+    /* --- TYPOGRAPHY (Fluid) --- */
+    h1, h2, h3, h4 {
       font-weight: normal;
+      text-wrap: balance;
     }
 
     .display-title {
       font-family: var(--font-display);
-      font-size: clamp(4.5rem, 11vw, 9rem);
-      line-height: 0.9;
+      font-size: clamp(3rem, 8vw + 1rem, 8.5rem);
+      line-height: 0.92;
       letter-spacing: -0.02em;
       color: var(--text-pearl);
-      text-shadow: 0 10px 40px rgba(15, 26, 47, 0.8);
     }
 
     .display-title i {
       font-style: italic;
       color: var(--text-muted);
-      font-weight: normal;
     }
 
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      line-height: 1;
-      margin-bottom: 1rem;
+      font-size: clamp(2.2rem, 4.5vw + 0.5rem, 5rem);
+      line-height: 1.05;
+      margin-bottom: var(--space-sm);
     }
 
     .section-title i {
@@ -164,28 +182,29 @@
     }
 
     .body-text {
-      font-size: clamp(1rem, 1.2vw, 1.25rem);
+      font-size: clamp(0.95rem, 1.1vw + 0.2rem, 1.2rem);
       color: var(--text-muted);
-      max-width: 550px;
+      max-width: 58ch;
+      line-height: 1.75;
     }
 
     .tagline {
       font-family: var(--font-body);
-      font-size: 0.75rem;
+      font-size: clamp(0.65rem, 0.8vw, 0.75rem);
       text-transform: uppercase;
-      letter-spacing: 0.4em;
+      letter-spacing: 0.35em;
       color: var(--text-dim);
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: var(--space-sm);
     }
 
     .tagline::after {
       content: '';
       height: 1px;
-      width: 50px;
+      width: clamp(30px, 4vw, 55px);
       background: var(--text-dim);
-      display: block;
+      flex-shrink: 0;
     }
 
     /* --- BUTTONS --- */
@@ -193,29 +212,31 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 1.1rem 2.5rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
+      padding: clamp(0.9rem, 1.5vw, 1.15rem) clamp(1.8rem, 3vw, 2.8rem);
+      border-radius: var(--radius-full);
+      font-size: clamp(0.72rem, 0.9vw, 0.85rem);
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       font-weight: 500;
+      font-family: var(--font-body);
       text-decoration: none;
       transition: all 0.5s var(--ease-cinematic);
       cursor: pointer;
       border: none;
       position: relative;
       overflow: hidden;
+      white-space: nowrap;
     }
 
     .btn-primary {
       background: var(--text-pearl);
       color: var(--bg-deep);
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1), inset 0 -2px 5px rgba(15, 26, 47, 0.2);
+      box-shadow: 0 4px 24px rgba(255, 255, 255, 0.08);
     }
 
     .btn-primary:hover {
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2), inset 0 -2px 5px rgba(15, 26, 47, 0.2);
+      box-shadow: 0 12px 36px rgba(255, 255, 255, 0.15);
       background: #ffffff;
     }
 
@@ -227,19 +248,19 @@
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.07);
       border-color: var(--border-glow);
       transform: translateY(-3px);
     }
 
-    /* --- CINEMATIC REVEAL ANIMATIONS --- */
+    /* --- REVEAL ANIMATIONS --- */
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
-      filter: blur(12px);
-      transition: opacity 1.4s var(--ease-cinematic),
-        transform 1.4s var(--ease-cinematic),
-        filter 1.4s var(--ease-cinematic);
+      transform: translateY(35px);
+      filter: blur(10px);
+      transition: opacity 1.3s var(--ease-cinematic),
+        transform 1.3s var(--ease-cinematic),
+        filter 1.3s var(--ease-cinematic);
       will-change: transform, opacity, filter;
     }
 
@@ -249,54 +270,47 @@
       filter: blur(0);
     }
 
-    .delay-1 {
-      transition-delay: 0.1s;
-    }
-
-    .delay-2 {
-      transition-delay: 0.2s;
-    }
-
-    .delay-3 {
-      transition-delay: 0.3s;
-    }
+    .delay-1 { transition-delay: 0.12s; }
+    .delay-2 { transition-delay: 0.24s; }
+    .delay-3 { transition-delay: 0.36s; }
 
     /* --- NAVIGATION --- */
     .nav-wrapper {
       position: fixed;
-      top: 2rem;
+      top: clamp(1rem, 2.5vw, 2rem);
       left: 0;
       width: 100%;
       display: flex;
       justify-content: center;
-      z-index: 100;
-      padding: 0 2rem;
+      z-index: 1000;
+      padding: 0 var(--container-pad);
       pointer-events: none;
     }
 
     .nav {
       pointer-events: auto;
-      background: rgba(15, 26, 47, 0.65);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      background: rgba(15, 26, 47, 0.7);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
       border: 1px solid var(--border-glass);
-      border-radius: 999px;
-      padding: 0.5rem 0.5rem 0.5rem 2rem;
+      border-radius: var(--radius-full);
+      padding: 0.45rem 0.45rem 0.45rem clamp(1.2rem, 2.5vw, 2rem);
       display: flex;
       align-items: center;
-      gap: 3.5rem;
-      box-shadow: 0 10px 40px rgba(15, 26, 47, 0.4);
+      gap: clamp(1.5rem, 3.5vw, 3.5rem);
+      box-shadow: 0 12px 48px rgba(15, 26, 47, 0.5);
+      max-width: 100%;
     }
 
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
       text-decoration: none;
+      flex-shrink: 0;
     }
 
     .nav-logo img {
-      height: 28px;
+      height: clamp(22px, 2.5vw, 30px);
       width: auto;
       filter: brightness(0) invert(1);
       transition: filter 0.4s;
@@ -306,27 +320,20 @@
       filter: brightness(0) invert(0.85);
     }
 
-    .nav-logo span {
-      font-family: var(--font-body);
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      color: var(--text-pearl);
-      font-size: 0.85rem;
-    }
-
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: clamp(1.5rem, 2.5vw, 2.8rem);
       list-style: none;
     }
 
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       transition: color 0.4s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -334,19 +341,45 @@
     }
 
     .nav .btn-primary {
-      padding: 0.8rem 1.8rem;
-      font-size: 0.75rem;
+      padding: 0.7rem clamp(1.2rem, 2vw, 1.8rem);
+      font-size: 0.7rem;
+      flex-shrink: 0;
     }
 
-    /* --- HERO SECTION --- */
+    /* Mobile Nav Toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--text-pearl);
+      margin: 5px 0;
+      transition: all 0.3s var(--ease-cinematic);
+    }
+
+    /* Burger → X morph */
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* --- HERO --- */
     .hero {
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 8rem 2rem 4rem;
+      padding: clamp(7rem, 12vh, 10rem) var(--container-pad) clamp(4rem, 8vh, 6rem);
       position: relative;
     }
 
@@ -354,24 +387,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2rem;
-      max-width: 1000px;
+      gap: var(--space-md);
+      max-width: 900px;
       z-index: 2;
     }
 
     .hero-actions {
       display: flex;
-      gap: 1.5rem;
-      margin-top: 2rem;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    /* HIGH-END CINEMATIC GLASS SHAPE */
     .hero-visual {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       z-index: 1;
       pointer-events: none;
       display: flex;
@@ -382,96 +413,79 @@
 
     .glass-glow {
       position: absolute;
-      width: clamp(200px, 30vw, 400px);
-      height: clamp(200px, 30vw, 400px);
-      background: radial-gradient(circle, rgba(177, 188, 209, 0.15) 0%, transparent 70%); /* Silver Steel */
+      width: clamp(180px, 28vw, 380px);
+      height: clamp(180px, 28vw, 380px);
+      background: radial-gradient(circle, rgba(177, 188, 209, 0.12) 0%, transparent 70%);
       border-radius: 50%;
       filter: blur(40px);
-      animation: pulse-glow 8s ease-in-out infinite alternate;
+      animation: pulse-glow 9s ease-in-out infinite alternate;
     }
 
     .glass-shape {
       position: relative;
-      width: clamp(300px, 45vw, 650px);
-      height: clamp(300px, 45vw, 650px);
-
-      background: linear-gradient(135deg, rgba(192, 192, 204, 0.04) 0%, rgba(192, 192, 204, 0.005) 100%);
-      backdrop-filter: blur(35px);
-      -webkit-backdrop-filter: blur(35px);
-
+      width: clamp(260px, 40vw, 600px);
+      height: clamp(260px, 40vw, 600px);
+      background: linear-gradient(135deg, rgba(192, 192, 204, 0.035) 0%, rgba(192, 192, 204, 0.005) 100%);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
       border: 1px solid var(--border-glass);
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      border-left: 1px solid rgba(255, 255, 255, 0.08);
-
-      box-shadow:
-        inset 0 0 60px rgba(255, 255, 255, 0.02),
-        0 30px 60px rgba(15, 26, 47, 0.6);
-
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.015), 0 30px 60px rgba(15, 26, 47, 0.5);
       border-radius: 45% 55% 65% 35% / 45% 45% 55% 55%;
-      animation: cinematic-morph 18s var(--ease-cinematic) infinite alternate;
+      animation: cinematic-morph 20s var(--ease-cinematic) infinite alternate;
       transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .glass-shape::after {
       content: '';
       position: absolute;
-      top: 5%;
-      left: 5%;
-      width: 40%;
-      height: 40%;
-      background: radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+      top: 6%;
+      left: 6%;
+      width: 38%;
+      height: 38%;
+      background: radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
       border-radius: 50%;
       transform: rotate(-45deg);
-      pointer-events: none;
     }
 
     @keyframes cinematic-morph {
-      0% {
-        border-radius: 45% 55% 65% 35% / 45% 45% 55% 55%;
-        transform: rotate(0deg) scale(1);
-      }
-      50% {
-        border-radius: 55% 45% 35% 65% / 55% 55% 45% 45%;
-      }
-      100% {
-        border-radius: 35% 65% 55% 45% / 45% 55% 45% 55%;
-        transform: rotate(15deg) scale(1.05);
-      }
+      0% { border-radius: 45% 55% 65% 35% / 45% 45% 55% 55%; transform: rotate(0deg) scale(1); }
+      50% { border-radius: 55% 45% 35% 65% / 55% 55% 45% 45%; }
+      100% { border-radius: 35% 65% 55% 45% / 45% 55% 45% 55%; transform: rotate(12deg) scale(1.04); }
     }
 
     @keyframes pulse-glow {
-      0% {
-        transform: scale(0.8);
-        opacity: 0.5;
-      }
-      100% {
-        transform: scale(1.2);
-        opacity: 1;
-      }
+      0% { transform: scale(0.85); opacity: 0.5; }
+      100% { transform: scale(1.15); opacity: 1; }
     }
 
+    /* FIX: centered with left/right 0 instead of transform,
+       so the .reveal transform can no longer break centering */
     .scroll-indicator {
       position: absolute;
-      bottom: 3rem;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: clamp(2rem, 4vh, 3.5rem);
+      left: 0;
+      right: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
       z-index: 2;
+      pointer-events: none;
     }
 
     .scroll-indicator span {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       text-transform: uppercase;
       letter-spacing: 0.4em;
+      padding-left: 0.4em; /* optically compensates trailing letter-spacing */
       color: var(--text-dim);
     }
 
     .scroll-line {
       width: 1px;
-      height: 50px;
+      height: 44px;
       background: var(--border-glass);
       position: relative;
       overflow: hidden;
@@ -485,7 +499,7 @@
       width: 100%;
       height: 50%;
       background: linear-gradient(to bottom, transparent, var(--text-pearl), transparent);
-      animation: scrollDrop 2.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      animation: scrollDrop 2.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
     }
 
     @keyframes scrollDrop {
@@ -497,37 +511,36 @@
     .marquee-container {
       width: 100%;
       overflow: hidden;
-      padding: 3.5rem 0;
-      background: rgba(28, 42, 74, 0.4); /* Navy Primary */
+      padding: clamp(2.2rem, 4vw, 3.5rem) 0;
+      background: var(--bg-glass);
       backdrop-filter: blur(10px);
       border-top: 1px solid var(--border-glass);
       border-bottom: 1px solid var(--border-glass);
-      display: flex;
     }
 
     .marquee-content {
       display: flex;
-      gap: 5rem;
+      gap: clamp(3rem, 6vw, 5.5rem);
       white-space: nowrap;
-      animation: marquee 35s linear infinite;
-      padding-left: 5rem;
+      animation: marquee 38s linear infinite;
+      width: max-content;
     }
 
     .marquee-item {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      letter-spacing: 0.2em;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      font-size: clamp(0.75rem, 1vw, 0.9rem);
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-dim);
+      flex-shrink: 0;
     }
 
     .marquee-item i {
       color: var(--text-pearl);
       font-family: var(--font-display);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-style: normal;
     }
 
@@ -538,24 +551,77 @@
 
     /* --- SECTIONS --- */
     .section-pad {
-      padding: 12rem 5vw;
+      padding: var(--space-3xl) var(--container-pad);
     }
 
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* --- ABOUT --- */
     .about-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8rem;
+      gap: var(--space-2xl);
       align-items: center;
-      max-width: 1400px;
-      margin: 0 auto;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .pillars {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    .pillar {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-md);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--border-glass);
+      align-items: start;
+    }
+
+    .pillar:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .pillar-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2vw, 1.8rem);
+      color: var(--text-dim);
+      font-style: italic;
+      line-height: 1.2;
+    }
+
+    .pillar-content h3 {
+      font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+      margin-bottom: 0.4rem;
+      color: var(--text-pearl);
+      font-weight: 400;
+    }
+
+    .pillar-content p {
+      font-size: clamp(0.9rem, 1vw, 1rem);
+      color: var(--text-muted);
+      line-height: 1.65;
     }
 
     .about-visual {
       position: relative;
-      border-radius: 30px;
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      aspect-ratio: 4/5;
-      background: linear-gradient(180deg, var(--bg-glass) 0%, rgba(0, 0, 0, 0) 100%);
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(180deg, var(--bg-glass) 0%, transparent 100%);
       border: 1px solid var(--border-glass);
     }
 
@@ -569,107 +635,59 @@
     }
 
     .about-visual:hover img {
-      transform: scale(1.05);
-      filter: grayscale(0%) contrast(1.1) brightness(1);
+      transform: scale(1.04);
+      filter: grayscale(0%) contrast(1.08) brightness(1);
     }
 
     .about-floating-card {
       position: absolute;
-      bottom: 2.5rem;
-      right: -2.5rem;
-      background: rgba(15, 26, 47, 0.8); /* Navy Dark */
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      bottom: clamp(1.5rem, 3vw, 2.5rem);
+      right: clamp(-1rem, -2vw, -2.5rem);
+      background: rgba(15, 26, 47, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border: 1px solid var(--border-glass);
-      padding: 2.5rem;
-      border-radius: 24px;
-      max-width: 300px;
-      box-shadow: 0 20px 40px rgba(15, 26, 47, 0.8);
+      padding: clamp(1.5rem, 2.5vw, 2.5rem);
+      border-radius: var(--radius-md);
+      max-width: 280px;
+      box-shadow: 0 24px 48px rgba(15, 26, 47, 0.7);
     }
 
     .about-floating-card h4 {
       font-family: var(--font-display);
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      font-size: clamp(1.3rem, 1.8vw, 1.7rem);
+      margin-bottom: 0.4rem;
       color: var(--text-pearl);
     }
 
     .about-floating-card p {
-      font-size: 0.9rem;
+      font-size: clamp(0.82rem, 0.95vw, 0.92rem);
       color: var(--text-muted);
-    }
-
-    .about-content {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-    }
-
-    .pillars {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-      margin-top: 2rem;
-    }
-
-    .pillar {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 2rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border-glass);
-    }
-
-    .pillar:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .pillar-num {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      color: var(--text-dim);
-      font-style: italic;
-    }
-
-    .pillar-content h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-pearl);
-    }
-
-    .pillar-content p {
-      font-size: 1rem;
-      color: var(--text-muted);
+      line-height: 1.6;
     }
 
     /* --- BENTO GRID --- */
-    .bento-container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
     .bento-header {
       text-align: center;
-      margin-bottom: 6rem;
+      margin-bottom: var(--space-xl);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: var(--space-sm);
     }
 
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: 320px;
-      gap: 1.5rem;
+      grid-auto-rows: clamp(260px, 28vw, 340px);
+      gap: clamp(1rem, 1.8vw, 1.5rem);
     }
 
     .bento-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-glass);
-      border-radius: 30px;
-      padding: 3.5rem;
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 3.5vw, 3.5rem);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -679,20 +697,17 @@
     }
 
     .bento-card:hover {
-      background: rgba(28, 42, 74, 0.6); /* Navy Primary */
+      background: rgba(28, 42, 74, 0.65);
       border-color: var(--border-glow);
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(15, 26, 47, 0.5);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(15, 26, 47, 0.5);
     }
 
     .bento-card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, -20%), rgba(192, 192, 204, 0.08), transparent 40%);
+      inset: 0;
+      background: radial-gradient(700px circle at var(--mouse-x, 50%) var(--mouse-y, -20%), rgba(192, 192, 204, 0.06), transparent 40%);
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.5s;
@@ -702,48 +717,43 @@
       opacity: 1;
     }
 
-    .card-wide {
-      grid-column: span 8;
-    }
-
-    .card-square {
-      grid-column: span 4;
-    }
+    .card-wide { grid-column: span 8; }
+    .card-square { grid-column: span 4; }
 
     .bento-icon {
       font-family: var(--font-display);
-      font-size: 3.5rem;
+      font-size: clamp(2.5rem, 3.5vw, 3.5rem);
       color: var(--text-dim);
-      margin-bottom: 1rem;
       font-style: italic;
+      line-height: 1;
     }
 
     .bento-card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+      font-size: clamp(1.2rem, 1.6vw, 1.6rem);
+      margin-bottom: 0.7rem;
       color: var(--text-pearl);
       font-weight: 400;
     }
 
     .bento-card p {
       color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 90%;
+      font-size: clamp(0.9rem, 1.05vw, 1.05rem);
+      max-width: 92%;
+      line-height: 1.7;
     }
 
-    /* --- PROCESS SECTION --- */
+    /* --- PROCESS --- */
     .process-section {
-      position: relative;
-      max-width: 900px;
+      max-width: 880px;
       margin: 0 auto;
     }
 
     .process-step {
       display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 4rem;
+      grid-template-columns: clamp(56px, 7vw, 80px) 1fr;
+      gap: clamp(1.5rem, 4vw, 4rem);
       position: relative;
-      padding-bottom: 7rem;
+      padding-bottom: clamp(4rem, 7vw, 7rem);
     }
 
     .process-step:last-child {
@@ -753,10 +763,10 @@
     .process-step::before {
       content: '';
       position: absolute;
-      top: 80px;
-      left: 39px;
+      top: clamp(60px, 7.5vw, 84px);
+      left: calc(clamp(56px, 7vw, 80px) / 2 - 1px);
       width: 2px;
-      height: calc(100% - 10px);
+      height: calc(100% - clamp(56px, 7vw, 80px) + 10px);
       background: linear-gradient(to bottom, var(--border-glow), transparent);
     }
 
@@ -765,8 +775,8 @@
     }
 
     .step-marker {
-      width: 80px;
-      height: 80px;
+      width: clamp(56px, 7vw, 80px);
+      height: clamp(56px, 7vw, 80px);
       border-radius: 50%;
       background: var(--bg-deep);
       border: 1px solid var(--border-glow);
@@ -774,67 +784,67 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-display);
-      font-size: 2rem;
+      font-size: clamp(1.4rem, 2vw, 2rem);
       font-style: italic;
       position: relative;
       z-index: 2;
       box-shadow: 0 0 30px rgba(15, 26, 47, 0.8);
       color: var(--text-pearl);
+      flex-shrink: 0;
     }
 
     .step-content {
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border-glass);
-      border-radius: 24px;
-      padding: 3.5rem;
+      border-radius: var(--radius-md);
+      padding: clamp(2rem, 3.5vw, 3.5rem);
       transition: all 0.5s var(--ease-cinematic);
       backdrop-filter: blur(10px);
     }
 
     .step-content:hover {
-      transform: translateX(15px);
+      transform: translateX(10px);
       border-color: var(--border-glow);
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.035);
     }
 
     .step-content h3 {
       font-family: var(--font-display);
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      margin-bottom: 0.8rem;
     }
 
-    /* --- BOOKING & FORM --- */
+    /* --- BOOKING / PARTNERSHIP --- */
     .booking-section {
-      background: radial-gradient(circle at center, rgba(28, 42, 74, 0.8) 0%, var(--bg-deep) 100%);
+      background: radial-gradient(ellipse at center, rgba(28, 42, 74, 0.7) 0%, var(--bg-deep) 100%);
       border-top: 1px solid var(--border-glass);
     }
 
     .booking-layout {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
-      gap: 8rem;
-      max-width: 1400px;
-      margin: 0 auto;
+      gap: var(--space-2xl);
+      align-items: start;
     }
 
     .booking-info .contact-list {
-      margin-top: 4rem;
+      margin-top: var(--space-lg);
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: var(--space-md);
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      font-size: 1.05rem;
+      gap: var(--space-sm);
+      font-size: clamp(0.9rem, 1.05vw, 1.05rem);
       color: var(--text-muted);
     }
 
     .contact-icon {
-      width: 56px;
-      height: 56px;
+      width: clamp(44px, 5vw, 56px);
+      height: clamp(44px, 5vw, 56px);
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-glass);
@@ -842,8 +852,9 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-display);
-      font-size: 1.5rem;
+      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
       color: var(--text-pearl);
+      flex-shrink: 0;
     }
 
     .glass-form {
@@ -851,45 +862,45 @@
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
       border: 1px solid var(--border-glass);
-      border-radius: 32px;
-      padding: 4rem;
+      border-radius: var(--radius-xl);
+      padding: clamp(2rem, 4vw, 4rem);
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: var(--space-md);
       box-shadow: 0 30px 60px rgba(15, 26, 47, 0.5);
     }
 
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: var(--space-md);
     }
 
     .input-group {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 0.7rem;
     }
 
     .input-group label {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       color: var(--text-dim);
-      padding-left: 0.5rem;
+      padding-left: 0.4rem;
     }
 
     .input-group input,
     .input-group select,
     .input-group textarea {
       width: 100%;
-      background: rgba(15, 26, 47, 0.3);
+      background: rgba(15, 26, 47, 0.35);
       border: 1px solid var(--border-glass);
-      border-radius: 16px;
-      padding: 1.2rem 1.5rem;
+      border-radius: var(--radius-sm);
+      padding: clamp(1rem, 1.3vw, 1.25rem) clamp(1.1rem, 1.5vw, 1.5rem);
       color: var(--text-pearl);
       font-family: var(--font-body);
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 1vw, 1rem);
       outline: none;
       transition: all 0.4s ease;
     }
@@ -897,6 +908,10 @@
     .input-group select {
       appearance: none;
       cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B1BCD1' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.2rem center;
+      padding-right: 3rem;
     }
 
     .input-group input:focus,
@@ -904,12 +919,17 @@
     .input-group textarea:focus {
       border-color: var(--border-glow);
       background: rgba(15, 26, 47, 0.6);
-      box-shadow: 0 0 20px rgba(192, 192, 204, 0.05);
+      box-shadow: 0 0 24px rgba(192, 192, 204, 0.04);
+    }
+
+    .input-group input::placeholder,
+    .input-group textarea::placeholder {
+      color: rgba(177, 188, 209, 0.4);
     }
 
     .input-group textarea {
       resize: vertical;
-      min-height: 140px;
+      min-height: 130px;
     }
 
     .input-full {
@@ -917,60 +937,93 @@
     }
 
     .form-submit-btn {
-      margin-top: 1.5rem;
+      margin-top: var(--space-sm);
       width: 100%;
-      padding: 1.4rem;
-      border-radius: 16px;
-      font-size: 0.9rem;
+      padding: clamp(1.1rem, 1.5vw, 1.4rem);
+      border-radius: var(--radius-sm);
+      font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+    }
+
+    .form-submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .form-note {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      text-align: center;
+      opacity: 0.7;
+      margin-top: -0.5rem;
+    }
+
+    .form-status {
+      font-size: 0.85rem;
+      text-align: center;
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1.2rem;
+      display: none;
+      line-height: 1.5;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    .form-status.success {
+      background: rgba(120, 200, 150, 0.1);
+      border: 1px solid rgba(120, 200, 150, 0.3);
+      color: #a8e6b8;
+    }
+
+    .form-status.error {
+      background: rgba(220, 120, 120, 0.1);
+      border: 1px solid rgba(220, 120, 120, 0.35);
+      color: #f0a8a8;
     }
 
     /* --- FOOTER --- */
     .footer {
-      padding: 6rem 5vw 3rem;
+      padding: var(--space-2xl) var(--container-pad) var(--space-lg);
       border-top: 1px solid var(--border-glass);
     }
 
     .footer-top {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
-      gap: 5rem;
-      margin-bottom: 6rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .footer-brand h2 {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-xl);
     }
 
     .footer-brand p {
       color: var(--text-muted);
-      max-width: 350px;
-      font-size: 1.05rem;
+      max-width: 340px;
+      font-size: clamp(0.9rem, 1vw, 1.02rem);
+      line-height: 1.7;
+      margin-top: var(--space-sm);
     }
 
     .footer-links h4 {
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.2em;
       color: var(--text-pearl);
-      margin-bottom: 2rem;
+      margin-bottom: var(--space-md);
+      font-weight: 500;
     }
 
     .footer-links ul {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: var(--space-xs);
     }
 
     .footer-links a {
       color: var(--text-muted);
       text-decoration: none;
       transition: color 0.3s;
-      font-size: 0.95rem;
+      font-size: clamp(0.85rem, 0.95vw, 0.95rem);
     }
 
     .footer-links a:hover {
@@ -978,33 +1031,57 @@
     }
 
     .footer-bottom {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding-top: 3rem;
+      padding-top: var(--space-lg);
       border-top: 1px solid var(--border-glass);
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: var(--text-dim);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
+      font-size: clamp(0.75rem, 0.85vw, 0.85rem);
+      letter-spacing: 0.04em;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
     }
 
-    /* --- RESPONSIVE --- */
-    @media (max-width: 1024px) {
+    /* ============================================
+       RESPONSIVE — FLUID ADAPTATION
+       ============================================ */
 
-      .about-layout,
+    /* Large tablets & small desktops */
+    @media (max-width: 1200px) {
+      .about-layout {
+        gap: var(--space-xl);
+      }
+
       .booking-layout {
+        gap: var(--space-xl);
+      }
+    }
+
+    /* Tablets */
+    @media (max-width: 1024px) {
+      .about-layout {
         grid-template-columns: 1fr;
-        gap: 5rem;
+        gap: var(--space-xl);
       }
 
       .about-visual {
-        max-height: 600px;
+        max-height: 550px;
+        aspect-ratio: 16 / 10;
+      }
+
+      .about-floating-card {
+        right: var(--space-md);
+        bottom: var(--space-md);
+      }
+
+      .booking-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
       }
 
       .bento-grid {
-        grid-auto-rows: minmax(280px, auto);
+        grid-auto-rows: minmax(250px, auto);
       }
 
       .card-wide {
@@ -1015,67 +1092,232 @@
         grid-column: span 6;
       }
 
-      .about-floating-card {
-        right: 2rem;
-        bottom: -2rem;
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
       }
     }
 
+    /* Mobile landscape / large phones */
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
       .nav {
-        padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+        position: relative; /* anchor for the mobile dropdown */
+        padding: 0.4rem 0.4rem 0.4rem 1.2rem;
         gap: 1rem;
+        justify-content: space-between;
       }
 
-      .display-title {
-        font-size: 4rem;
+      .nav-toggle {
+        display: block;
+      }
+
+      /* FIX: mobile dropdown menu (was display:none with no .show styles) */
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 0.7rem);
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        background: rgba(15, 26, 47, 0.92);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius-md);
+        padding: 0.6rem;
+        box-shadow: 0 24px 48px rgba(15, 26, 47, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.4s var(--ease-cinematic),
+          transform 0.4s var(--ease-cinematic),
+          visibility 0.4s;
+      }
+
+      .nav-links.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.85rem 1rem;
+        text-align: center;
+        border-radius: var(--radius-sm);
+        transition: color 0.4s, background 0.4s;
+      }
+
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .nav .btn-primary {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.65rem;
       }
 
       .section-pad {
-        padding: 8rem 5vw;
+        padding: var(--space-2xl) var(--container-pad);
       }
 
       .card-square {
         grid-column: span 12;
       }
 
+      .bento-grid {
+        grid-auto-rows: auto;
+      }
+
+      .bento-card {
+        min-height: 220px;
+      }
+
       .form-row {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: var(--space-sm);
       }
 
       .footer-top {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: var(--space-lg);
       }
 
       .process-step {
-        grid-template-columns: 60px 1fr;
-        gap: 2rem;
+        grid-template-columns: clamp(48px, 10vw, 60px) 1fr;
+        gap: var(--space-sm);
       }
 
       .step-marker {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
+        width: clamp(48px, 10vw, 60px);
+        height: clamp(48px, 10vw, 60px);
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
       }
 
       .process-step::before {
-        left: 29px;
+        left: calc(clamp(48px, 10vw, 60px) / 2 - 1px);
+        top: clamp(52px, 10.5vw, 64px);
       }
 
       .glass-form {
-        padding: 2.5rem;
+        padding: clamp(1.5rem, 5vw, 2.5rem);
+        border-radius: var(--radius-lg);
       }
 
       .footer-bottom {
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.8rem;
         text-align: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .about-floating-card {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        max-width: 100%;
+        margin-top: var(--space-sm);
+        border-radius: var(--radius-md);
+      }
+
+      .about-visual {
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    /* Small phones */
+    @media (max-width: 480px) {
+      :root {
+        --container-pad: 1.1rem;
+      }
+
+      .display-title {
+        font-size: clamp(2.6rem, 12vw, 3.5rem);
+      }
+
+      .section-title {
+        font-size: clamp(1.9rem, 8vw, 2.6rem);
+      }
+
+      .bento-card {
+        padding: clamp(1.5rem, 5vw, 2rem);
+        min-height: 200px;
+      }
+
+      .step-content {
+        padding: clamp(1.5rem, 5vw, 2rem);
+      }
+
+      .marquee-item {
+        font-size: 0.7rem;
+      }
+
+      .contact-item {
+        font-size: 0.85rem;
+      }
+
+      .glass-form {
+        gap: var(--space-sm);
+      }
+    }
+
+    /* Ultra-wide screens */
+    @media (min-width: 1800px) {
+      :root {
+        --container-max: 1560px;
+      }
+
+      html {
+        font-size: 17px;
+      }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* Print */
+    @media print {
+      .ambient-bg, .hero-visual, .scroll-indicator, .marquee-container {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+        color: #000;
       }
     }
   </style>
@@ -1083,367 +1325,544 @@
 
 <body>
 
-  <div class="ambient-bg">
+  <div class="ambient-bg" aria-hidden="true">
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
   </div>
 
+  <!-- NAVIGATION -->
   <div class="nav-wrapper">
-    <nav class="nav" id="navbar">
-      <a href="#" class="nav-logo">
-        <img src="ORTHOVA LOGO.svg" alt="Orthova Logo">
+    <nav class="nav" id="navbar" aria-label="Main navigation">
+      <a href="#" class="nav-logo" aria-label="Orthova Home">
+        <img src="ORTHOVA LOGO.svg" alt="Orthova">
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
-        <li><a href="#why">Philosophy</a></li>
-        <li><a href="#process">Process</a></li>
+        <li><a href="#why">Advantages</a></li>
+        <li><a href="#process">Workflow</a></li>
       </ul>
-      <a href="#booking" class="btn btn-primary">Book Consultation</a>
+      <a href="#booking" class="btn btn-primary">Partner With Us</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
   </div>
 
   <main>
+    <!-- HERO -->
     <section class="hero" id="home">
-      <!-- THE UPGRADED CINEMATIC GLASS -->
-      <div class="hero-visual reveal">
+      <div class="hero-visual reveal" aria-hidden="true">
         <div class="glass-glow"></div>
         <div class="glass-shape"></div>
       </div>
 
       <div class="hero-content">
-        <span class="tagline reveal delay-1">Premium Clear Aligners</span>
+        <span class="tagline reveal delay-1">Precision Clear Aligner System</span>
         <h1 class="display-title reveal delay-2">
           The <i>Art</i><br>of Alignment.
         </h1>
-        <p class="body-text reveal delay-3">
-          Precision-engineered in Germany. We merge clinical reliability with unparalleled aesthetic refinement for the
-          discerning patient.
+        <p class="body-text reveal delay-3" style="text-align: center;">
+          A clear aligner system built for clinicians who demand predictability. 
+          Meticulous material quality, refined design, and seamless integration 
+          into your existing practice workflow.
         </p>
         <div class="hero-actions reveal delay-3">
-          <a href="#booking" class="btn btn-primary">Begin Journey</a>
-          <a href="#about" class="btn btn-secondary">Explore Orthova</a>
+          <a href="#booking" class="btn btn-primary">Request a Partnership</a>
+          <a href="#about" class="btn btn-secondary">Explore the System</a>
         </div>
       </div>
-      <div class="scroll-indicator reveal delay-3">
+
+      <div class="scroll-indicator reveal delay-3" aria-hidden="true">
         <span>Scroll</span>
         <div class="scroll-line"></div>
       </div>
     </section>
 
-    <div class="marquee-container">
+    <!-- MARQUEE -->
+    <div class="marquee-container" aria-hidden="true">
       <div class="marquee-content">
-        <div class="marquee-item">German Engineering <i>✦</i></div>
-        <div class="marquee-item">Clinical Precision <i>✦</i></div>
-        <div class="marquee-item">Aesthetic Refinement <i>✦</i></div>
-        <div class="marquee-item">Invisible Comfort <i>✦</i></div>
-        <div class="marquee-item">German Engineering <i>✦</i></div>
-        <div class="marquee-item">Clinical Precision <i>✦</i></div>
-        <div class="marquee-item">Aesthetic Refinement <i>✦</i></div>
-        <div class="marquee-item">Invisible Comfort <i>✦</i></div>
+        <div class="marquee-item">Precision Manufacturing <i>✦</i></div>
+        <div class="marquee-item">Clinical Predictability <i>✦</i></div>
+        <div class="marquee-item">Superior Material Quality <i>✦</i></div>
+        <div class="marquee-item">Seamless Practice Integration <i>✦</i></div>
+        <div class="marquee-item">Doctor-Led Protocols <i>✦</i></div>
+        <div class="marquee-item">Precision Manufacturing <i>✦</i></div>
+        <div class="marquee-item">Clinical Predictability <i>✦</i></div>
+        <div class="marquee-item">Superior Material Quality <i>✦</i></div>
+        <div class="marquee-item">Seamless Practice Integration <i>✦</i></div>
+        <div class="marquee-item">Doctor-Led Protocols <i>✦</i></div>
       </div>
     </div>
 
+    <!-- ABOUT / SYSTEM -->
     <section class="section-pad" id="about">
-      <div class="about-layout">
-        <div class="about-content">
-          <span class="tagline reveal">The Orthova Standard</span>
-          <h2 class="section-title reveal delay-1">Premium Care.<br><i>Unmatched Precision.</i></h2>
-          <p class="body-text reveal delay-2">
-            Orthova elevates the orthodontic experience. Sourced exclusively from premium German laboratories, our
-            aligners guarantee superior material quality and predictable clinical outcomes. We design not just for the
-            destination, but for a flawless journey.
-          </p>
+      <div class="container">
+        <div class="about-layout">
+          <div class="about-content">
+            <span class="tagline reveal">The Orthova System</span>
+            <h2 class="section-title reveal delay-1">Built for the<br><i>Modern Practice.</i></h2>
+            <p class="body-text reveal delay-2">
+              Orthova is a clear aligner system designed around the clinician. Every 
+              element — from material selection to digital planning tools — is engineered 
+              to give you predictable outcomes, streamlined chair time, and the confidence 
+              to case-plan with precision. No compromises on quality. No complexity in workflow.
+            </p>
 
-          <div class="pillars reveal delay-3">
-            <div class="pillar">
-              <div class="pillar-num">01</div>
-              <div class="pillar-content">
-                <h3>German Fabrication</h3>
-                <p>The global benchmark for medical-grade materials.</p>
+            <div class="pillars reveal delay-3">
+              <div class="pillar">
+                <div class="pillar-num">01</div>
+                <div class="pillar-content">
+                  <h3>Material Integrity</h3>
+                  <p>Medical-grade, bio-compatible thermoform polymers selected for 
+                     optical clarity, consistent force delivery, and patient comfort 
+                     throughout the treatment arc.</p>
+                </div>
               </div>
-            </div>
-            <div class="pillar">
-              <div class="pillar-num">02</div>
-              <div class="pillar-content">
-                <h3>Absolute Clarity</h3>
-                <p>Thermoform technology for near-invisibility.</p>
+              <div class="pillar">
+                <div class="pillar-num">02</div>
+                <div class="pillar-content">
+                  <h3>Design Precision</h3>
+                  <p>Each aligner is digitally planned and manufactured to exacting 
+                     tolerances — gingival trim lines, pressure zones, and staging 
+                     sequences are calibrated for controlled, predictable movement.</p>
+                </div>
+              </div>
+              <div class="pillar">
+                <div class="pillar-num">03</div>
+                <div class="pillar-content">
+                  <h3>Practice-First Workflow</h3>
+                  <p>From intraoral scan to final delivery, the system integrates into 
+                     your existing clinical protocol with minimal disruption. Dedicated 
+                     support at every stage.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="about-visual reveal delay-2">
-          <img src="orthova alignment case.jpeg" alt="Orthova Premium Clear Aligners Case">
-          <div class="about-floating-card">
-            <h4>Engineering</h4>
-            <p>Every micro-movement is calculated digitally for frictionless comfort.</p>
+          <div class="about-visual reveal delay-2">
+            <img src="orthova alignment case.jpeg" alt="Orthova clear aligner case demonstrating precision fit and optical clarity">
+            <div class="about-floating-card">
+              <h4>Controlled Force</h4>
+              <p>Every micro-movement is digitally calculated for consistent, 
+                 biologically sound tooth translation.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ADVANTAGES / BENTO -->
     <section class="section-pad" id="why">
-      <div class="bento-container">
+      <div class="container">
         <div class="bento-header reveal">
-          <span class="tagline">The Difference</span>
-          <h2 class="section-title">Designed for <i>Perfection</i></h2>
+          <span class="tagline">Clinical Advantages</span>
+          <h2 class="section-title">Why Practices Choose <i>Orthova</i></h2>
         </div>
 
         <div class="bento-grid">
           <div class="bento-card card-wide reveal">
-            <div class="bento-icon">C</div>
-            <h3>Clinically Proven Outcomes</h3>
-            <p>Backed by peer-reviewed data and trusted by top orthodontists. Our predictable force systems ensure your
-              smile arrives exactly where mapped.</p>
+            <div class="bento-icon">P</div>
+            <div>
+              <h3>Predictable Treatment Planning</h3>
+              <p>Full digital case setup with 3D staging before fabrication begins. 
+                 Review, adjust, and approve every movement sequence. What you plan 
+                 is what you deliver.</p>
+            </div>
           </div>
 
           <div class="bento-card card-square reveal delay-1">
-            <div class="bento-icon">I</div>
-            <h3>Invisible</h3>
-            <p>Crystal-clear aesthetics that seamlessly blend with your natural teeth.</p>
+            <div class="bento-icon">Q</div>
+            <div>
+              <h3>Material Quality</h3>
+              <p>Consistent polymer thickness, superior clarity retention, and 
+                 reliable elastic memory across the full wear cycle.</p>
+            </div>
           </div>
 
           <div class="bento-card card-square reveal">
             <div class="bento-icon">F</div>
-            <h3>Precision Fit</h3>
-            <p>Advanced 3D mapping guarantees aligners that hug the gingival line perfectly.</p>
+            <div>
+              <h3>Precision Fit</h3>
+              <p>Digitally mapped gingival contours ensure each aligner seats 
+                 accurately with minimal chair-side adjustment.</p>
+            </div>
           </div>
 
           <div class="bento-card card-wide reveal delay-1">
-            <div class="bento-icon">D</div>
-            <h3>Doctor-Led Treatment</h3>
-            <p>No DIY guesswork. Your entire biological transformation is overseen exclusively by certified dental
-              professionals from day one to retention.</p>
+            <div class="bento-icon">S</div>
+            <div>
+              <h3>Dedicated Clinical Support</h3>
+              <p>Direct access to our technical team for case consultation, 
+                 staging revisions, and troubleshooting. A partnership, 
+                 not a transaction — from first scan to final retention.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PROCESS / WORKFLOW -->
     <section class="section-pad" id="process">
-      <div class="bento-header reveal">
-        <span class="tagline">How It Works</span>
-        <h2 class="section-title">Your Path to <i>Alignment</i></h2>
-      </div>
-
-      <div class="process-section">
-        <div class="process-step reveal">
-          <div class="step-marker">1</div>
-          <div class="step-content">
-            <h3>The Consultation</h3>
-            <p class="body-text">Meet with a certified Orthova doctor. A comprehensive intraoral scan captures your
-              unique dental architecture in high-definition 3D.</p>
-          </div>
+      <div class="container">
+        <div class="bento-header reveal">
+          <span class="tagline">Clinical Workflow</span>
+          <h2 class="section-title">From Scan to <i>Delivery</i></h2>
         </div>
 
-        <div class="process-step reveal">
-          <div class="step-marker">2</div>
-          <div class="step-content">
-            <h3>Digital Trajectory</h3>
-            <p class="body-text">Our technicians map the exact movement of every tooth. You'll review a cinematic 3D
-              simulation of your final smile before manufacturing begins.</p>
+        <div class="process-section">
+          <div class="process-step reveal">
+            <div class="step-marker">1</div>
+            <div class="step-content">
+              <h3>Case Submission</h3>
+              <p class="body-text">Submit intraoral scans (STL/PLY) or impressions 
+                 through our secure portal. Include your prescription, treatment 
+                 objectives, and any specific staging preferences.</p>
+            </div>
           </div>
-        </div>
 
-        <div class="process-step reveal">
-          <div class="step-marker">3</div>
-          <div class="step-content">
-            <h3>German Fabrication</h3>
-            <p class="body-text">Your custom aligners are engineered using bio-compatible thermoform plastics, polished
-              for comfort, and shipped to your clinic.</p>
+          <div class="process-step reveal">
+            <div class="step-marker">2</div>
+            <div class="step-content">
+              <h3>Digital Setup &amp; Approval</h3>
+              <p class="body-text">Our technicians build a full 3D treatment plan. 
+                 You review the staging sequence, request modifications, and approve 
+                 the final setup before any fabrication begins.</p>
+            </div>
           </div>
-        </div>
 
-        <div class="process-step reveal">
-          <div class="step-marker">4</div>
-          <div class="step-content">
-            <h3>The Transformation</h3>
-            <p class="body-text">Progress through your series of invisible trays. With periodic doctor check-ins, watch
-              the art of alignment unfold seamlessly.</p>
+          <div class="process-step reveal">
+            <div class="step-marker">3</div>
+            <div class="step-content">
+              <h3>Precision Fabrication</h3>
+              <p class="body-text">Aligners are thermoformed from medical-grade polymer, 
+                 trimmed to your specified gingival line, polished, and quality-checked 
+                 at each stage of production.</p>
+            </div>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="step-marker">4</div>
+            <div class="step-content">
+              <h3>Delivery &amp; Ongoing Support</h3>
+              <p class="body-text">Full aligner sets ship directly to your clinic with 
+                 labelled staging. Mid-course corrections, refinements, and retention 
+                 appliances are handled with the same precision.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PARTNERSHIP / BOOKING -->
     <section class="section-pad booking-section" id="booking">
-      <div class="booking-layout">
-        <div class="booking-info reveal">
-          <span class="tagline">Take the first step</span>
-          <h2 class="section-title">Start Your<br><i>Journey</i></h2>
-          <p class="body-text">Connect with a certified Orthova provider. Consultations are handled with absolute
-            discretion and professionalism.</p>
+      <div class="container">
+        <div class="booking-layout">
+          <div class="booking-info reveal">
+            <span class="tagline">Become a Provider</span>
+            <h2 class="section-title">Partner With<br><i>Orthova</i></h2>
+            <p class="body-text">
+              Whether you're integrating clear aligners into an existing practice or 
+              expanding your orthodontic offerings, we'd welcome the conversation. 
+              Tell us about your clinic and we'll outline how the system fits.
+            </p>
 
-          <div class="contact-list">
-            <div class="contact-item">
-              <div class="contact-icon">@</div>
-              <span>info@orthovastudio.com</span>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">T</div>
-              <span>Mon – Sat, 9:00 AM – 6:00 PM</span>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">G</div>
-              <span>German-Engineered · Global Reach</span>
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-icon">@</div>
+                <span>info@orthovastudio.com</span>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">T</div>
+                <span>Mon – Sat, 9:00 AM – 6:00 PM</span>
+              </div>
             </div>
           </div>
+
+          <!-- 
+            FORM SUBMISSION — Web3Forms (direct delivery, no email client redirect):
+            1. Go to https://web3forms.com
+            2. Enter the destination inbox: info@orthovastudio.com
+            3. You will instantly receive an Access Key (no signup/confirmation step needed)
+            4. Replace "YOUR_ACCESS_KEY_HERE" in the hidden input below with that key
+          -->
+          <form class="glass-form reveal delay-1" id="partnershipForm">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="subject" value="New Partnership Inquiry — Orthova">
+            <input type="hidden" name="from_name" value="Orthova Website">
+            <!-- Honeypot spam trap: must stay empty and hidden -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+            <div class="form-row">
+              <div class="input-group">
+                <label for="doctorName">Doctor / Contact Name</label>
+                <input type="text" id="doctorName" name="name" required 
+                       placeholder="Dr. Ahmed Magdy" autocomplete="name">
+              </div>
+              <div class="input-group">
+                <label for="email">Practice Email</label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="clinic@example.com" autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" 
+                       placeholder="+20 106 033 9938" autocomplete="tel">
+              </div>
+              <div class="input-group">
+                <label for="practiceName">Practice / Clinic Name</label>
+                <input type="text" id="practiceName" name="practice" 
+                       placeholder="Magdy Orthodontics" autocomplete="organization">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label for="type">Inquiry Type</label>
+                <select id="type" name="inquiry_type" required>
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="new-partner">New Practice Partnership</option>
+                  <option value="case-volume">Case Volume &amp; Pricing</option>
+                  <option value="technical">Technical / Clinical Question</option>
+                  <option value="existing">Existing Partner Support</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="volume">Estimated Monthly Cases</label>
+                <select id="volume" name="case_volume">
+                  <option value="" disabled selected>Select range</option>
+                  <option value="1-5">1 – 5</option>
+                  <option value="6-15">6 – 15</option>
+                  <option value="16-30">16 – 30</option>
+                  <option value="30+">30+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-group input-full">
+              <label for="message">Additional Details</label>
+              <textarea id="message" name="message" 
+                        placeholder="Tell us about your practice, current aligner workflow, or any specific requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit-btn" id="submitBtn">
+              Submit Partnership Inquiry
+            </button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <p class="form-note">Submissions are delivered directly to info@orthovastudio.com. 
+               We typically respond within one business day.</p>
+          </form>
         </div>
-
-        <form class="glass-form reveal delay-1" onsubmit="handleFormSubmit(event)">
-          <div class="form-row">
-            <div class="input-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" required placeholder="John Doe">
-            </div>
-            <div class="input-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" required placeholder="john@example.com">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="input-group">
-              <label for="phone">Phone (Optional)</label>
-              <input type="tel" id="phone" placeholder="+1 234 567 890">
-            </div>
-            <div class="input-group">
-              <label for="type">Inquiry Type</label>
-              <select id="type" required>
-                <option value="" disabled selected>Select an option</option>
-                <option value="patient">New Patient Consultation</option>
-                <option value="transfer">Second Opinion</option>
-                <option value="doctor">Provider Partnership</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="input-group input-full">
-            <label for="message">Details</label>
-            <textarea id="message" placeholder="Tell us about your smile goals..."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary form-submit-btn" id="submitBtn">Request Consultation</button>
-        </form>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-top">
-      <div class="footer-brand reveal">
-        <img src="ORTHOVA LOGO.svg" alt="Orthova Logo"
-          style="height: 45px; width: auto; filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
-        <p>The Art Of Alignment. Premium clear aligners merging clinical precision with flawless aesthetics.</p>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand reveal">
+          <img src="ORTHOVA LOGO.svg" alt="Orthova"
+               style="height: 42px; width: auto; filter: brightness(0) invert(1);">
+          <p>The Art of Alignment. A clear aligner system engineered for 
+             clinical precision, material quality, and seamless practice integration.</p>
+        </div>
+
+        <div class="footer-links reveal delay-1">
+          <h4>System</h4>
+          <ul>
+            <li><a href="#about">Overview</a></li>
+            <li><a href="#why">Clinical Advantages</a></li>
+            <li><a href="#process">Workflow</a></li>
+            <li><a href="#booking">Partnership</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links reveal delay-2">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:info@orthovastudio.com">info@orthovastudio.com</a></li>
+            <li><a href="#booking">Become a Provider</a></li>
+          </ul>
+        </div>
       </div>
 
-      <div class="footer-links reveal delay-1">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#about">Our Story</a></li>
-          <li><a href="#why">Technology</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#">Careers</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <span>© 2026 Orthova Studio. All rights reserved.</span>
+        <span>Precision Design · Quality </span>
       </div>
-
-      <div class="footer-links reveal delay-2">
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="#booking">Find a Provider</a></li>
-          <li><a href="#booking">Partner With Us</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">LinkedIn</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 Orthova Studio. All rights reserved.</span>
-      <span>Engineered in Germany</span>
     </div>
   </footer>
 
   <script>
-    // 1. Cinematic Scroll Reveal Logic
+    // ============================================
+    // 1. SCROLL REVEAL
+    // ============================================
     const revealElements = document.querySelectorAll('.reveal');
 
-    const revealOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
-
-    const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('active');
         observer.unobserve(entry.target);
       });
-    }, revealOptions);
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
 
-    revealElements.forEach(el => revealOnScroll.observe(el));
+    revealElements.forEach(el => revealObserver.observe(el));
 
-    // 2. Smooth Scrolling
+    // ============================================
+    // 2. SMOOTH SCROLLING
+    // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+        const target = document.querySelector(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
 
-    // 3. Form Handling
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      const originalText = btn.innerText;
+    // ============================================
+    // 3. FORM SUBMISSION — Web3Forms (direct API delivery)
+    //    Delivers to: info@orthovastudio.com
+    //    No email client, no redirect — pure background request.
+    // ============================================
+    const form = document.getElementById('partnershipForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formStatus = document.getElementById('formStatus');
 
-      btn.innerText = 'Sending Request...';
-      btn.style.opacity = '0.8';
-      btn.style.pointerEvents = 'none';
-
-      setTimeout(() => {
-        btn.innerText = 'Request Received';
-        btn.style.background = 'var(--text-muted)';
-        btn.style.color = 'var(--bg-deep)';
-        e.target.reset();
-
-        setTimeout(() => {
-          btn.innerText = originalText;
-          btn.style.background = '';
-          btn.style.color = '';
-          btn.style.opacity = '1';
-          btn.style.pointerEvents = 'auto';
-        }, 4000);
-      }, 1500);
+    function setStatus(message, type) {
+      formStatus.textContent = message;
+      formStatus.className = 'form-status show ' + type;
     }
 
-    // 4. Ultra-Smooth Cinematic Parallax for the Glass Shape
-    const glassShape = document.querySelector('.glass-shape');
+    function clearStatus() {
+      formStatus.textContent = '';
+      formStatus.className = 'form-status';
+    }
 
-    document.addEventListener('mousemove', (e) => {
-      if (glassShape) {
-        const x = (window.innerWidth / 2 - e.pageX) / 60;
-        const y = (window.innerHeight / 2 - e.pageY) / 60;
-        glassShape.style.transform = `translate(${x}px, ${y}px)`;
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearStatus();
+
+      const accessKey = form.querySelector('[name="access_key"]').value;
+      if (!accessKey || accessKey === 'fb74669c-5a24-4c71-8c98-95e185d1fd02') {
+        setStatus('النموذج لسه مش مفعّل — محتاج Access Key من web3forms.com.', 'error');
+        return;
+      }
+
+      const originalText = submitBtn.innerText;
+      submitBtn.innerText = 'جاري الإرسال...';
+      submitBtn.disabled = true;
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          submitBtn.innerText = '✓ تم الإرسال بنجاح';
+          setStatus('تم استلام طلبك بنجاح، وسيتم التواصل معك قريبًا.', 'success');
+          form.reset();
+
+          setTimeout(() => {
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+          }, 5000);
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (error) {
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+        setStatus('حدث خطأ أثناء الإرسال. من فضلك حاول مرة أخرى، أو تواصل معنا مباشرة على info@orthovastudio.com', 'error');
       }
     });
 
-    // 5. Bento Card Hover Effect (Glow follows mouse)
+    // ============================================
+    // 4. PARALLAX GLASS SHAPE
+    // ============================================
+    const glassShape = document.querySelector('.glass-shape');
+    let rafId = null;
+
+    if (glassShape && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.addEventListener('mousemove', (e) => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+          const x = (window.innerWidth / 2 - e.pageX) / 70;
+          const y = (window.innerHeight / 2 - e.pageY) / 70;
+          glassShape.style.transform = `translate(${x}px, ${y}px)`;
+          rafId = null;
+        });
+      });
+    }
+
+    // ============================================
+    // 5. BENTO CARD GLOW FOLLOW
+    // ============================================
     document.querySelectorAll('.bento-card').forEach(card => {
       card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
       });
+    });
+
+    // ============================================
+    // 6. NAV SCROLL STATE
+    // ============================================
+    const nav = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > 100) {
+        nav.style.boxShadow = '0 16px 56px rgba(15, 26, 47, 0.7)';
+      } else {
+        nav.style.boxShadow = '0 12px 48px rgba(15, 26, 47, 0.5)';
+      }
+      lastScroll = current;
+    }, { passive: true });
+
+    // ============================================
+    // 7. MOBILE NAV TOGGLE (FIX)
+    // ============================================
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('navLinks');
+
+    function setMenu(open) {
+      navLinks.classList.toggle('show', open);
+      navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open);
+    }
+
+    navToggle.addEventListener('click', () => {
+      setMenu(!navLinks.classList.contains('show'));
+    });
+
+    // Close after tapping any nav link (smooth scroll still runs)
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+
+    // Close on outside tap
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav')) setMenu(false);
     });
   </script>
 </body>
